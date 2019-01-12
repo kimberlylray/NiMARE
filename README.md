@@ -49,7 +49,7 @@ docker build -t test/nimare .
 
 To run the Docker container:
 ```
-docker run -it -v `pwd`:/home/neuro/code/NiMARE -p8888:8888 test/nimare bash
+docker run -it -v $PWD:/home/neuro/code/NiMARE -p8888:8888 test/nimare bash
 ```
 
 Once inside the container, you can install NiMARE:
