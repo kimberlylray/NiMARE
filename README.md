@@ -44,18 +44,39 @@ python setup.py install
 ### Installation with Docker
 To build the Docker image:
 ```
-docker build -t test/nimare .
+docker build -t tsalo/nimare-dev .
+```
+
+Alternatively, you can pull the image from Docker Hub:
+```
+docker pull tsalo/nimare-dev:latest
 ```
 
 To run the Docker container:
 ```
-docker run -it -v $PWD:/home/neuro/code/NiMARE -p8888:8888 test/nimare bash
+docker run -it -v $PWD:/home/neuro/code/NiMARE -p8888:8888 tsalo/nimare-dev bash
 ```
 
 Once inside the container, you can install NiMARE:
 ```
-python /home/neuro/code/NiMARE/setup.py develop
+cd /home/neuro/code/NiMARE
+python setup.py develop
 ```
+
+You can open a notebook in the container:
+```
+jupyter notebook --ip=0.0.0.0
+```
+
+This will print several lines, including two like the following:
+
+```
+[I 15:41:49.882 NotebookApp] The Jupyter Notebook is running at:
+[I 15:41:49.883 NotebookApp] http://(3b5cff748bb0 or 127.0.0.1):8888/?token=8387d124d010ff22cbffd6c2a5208d0a106c2194ba88c6f8
+```
+
+Copy the address into a web browser, but only keep 127.0.0.1 from the parentheses.
+E.g.,: `http://127.0.0.1:8888/?token=8387d124d010ff22cbffd6c2a5208d0a106c2194ba88c6f8`
 
 ## Contributing
 
